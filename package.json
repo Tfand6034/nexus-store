@@ -14,7 +14,7 @@
     "dev:clean": "powershell -ExecutionPolicy Bypass -File scripts/free-ports.ps1 && npm run dev",
     "client": "vite",
     "server": "node server/index.js",
-    "build": "vite build",
+    "build": "node scripts/build.mjs",
     "start": "node server/index.js",
     "lint": "eslint .",
     "preview": "vite preview"

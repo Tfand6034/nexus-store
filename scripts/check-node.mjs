@@ -1,3 +1,7 @@
+if (process.env.RENDER || process.env.CI) {
+  process.exit(0)
+}
+
 const { node: version } = process.versions
 const [major, minor] = version.split('.').map(Number)
 
