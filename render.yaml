@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: nexus-store
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEV_PASSWORD
+        generateValue: true
+      - key: VITE_DEV_PASSWORD
+        fromService:
+          type: web
+          name: nexus-store
+          envVarKey: DEV_PASSWORD
